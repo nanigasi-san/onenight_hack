@@ -18,6 +18,11 @@ with open("data.csv", encoding="utf-8") as f:
         })
 
 
+@app.route("/")
+def index() -> str:
+    return "Hello"
+
+
 @app.route("/events")
 def return_events() -> Response:
     d: dict[str, list[dict[str, str]]] = {"events": events}
@@ -27,4 +32,4 @@ def return_events() -> Response:
 
 if __name__ == "__main__":
     import os
-    app.run(port=os.environ["PORT"], host="0.0.0.0", debug=True)
+    app.run(port=int(os.environ["PORT"]), host="0.0.0.0", debug=True)
