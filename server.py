@@ -30,6 +30,13 @@ def return_events() -> Response:
     return res
 
 
+from random import choice
+@app.route("/events/choice")
+def choice_event() -> Response:
+    res: Response = jsonify(choice(events))
+    return res
+
+
 if __name__ == "__main__":
     import os
     app.run(port=int(os.environ["PORT"]), host="0.0.0.0", debug=True)
