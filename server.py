@@ -1,8 +1,10 @@
 from flask import Flask, jsonify, Response
+from flask_cors import CORS
 import typing
 list = typing.List
 dict = typing.Dict
 app: Flask = Flask(__name__)
+CORS(app)
 app.config['JSON_AS_ASCII'] = False
 
 events: list[dict[str, str]] = []
