@@ -8,10 +8,11 @@ app.config['JSON_AS_ASCII'] = False
 events: list[dict[str, str]] = []
 with open("data.csv", encoding="utf-8") as f:
     for line in f.readlines():
-        event_name, date, location, image_url = line.strip().split(", ")
+        event_name, description, event_period, location, image_url = line.strip().split(", ")
         events.append({
             "event_name": event_name,
-            "date": date,
+            "description": description,
+            "event_period": event_period,
             "location": location,
             "image_url": image_url
         })
