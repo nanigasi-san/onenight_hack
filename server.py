@@ -26,4 +26,5 @@ def return_events() -> Response:
 
 
 if __name__ == "__main__":
-    app.run(debug=True)
+    import os
+    app.run(port=os.environ["PORT"], host="0.0.0.0", debug=True)
